@@ -7,10 +7,11 @@ MAINTAINER Steve Wyckoff "s.wyckoff1@gmail.com"
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 # RUN groupadd -r redis && useradd -r -g redis redis # Issue writing to volume from non root user.
 
-ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-2.8.17.tar.gz
+ENV REDIS_VERSION 2.8.17
+ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-$REDIS_VERSION.tar.gz
 ENV REDIS_DOWNLOAD_SHA1 913479f9d2a283bfaadd1444e17e7bab560e5d1e
-ENV REDIS_TAR redis-2.8.17.tar.gz
-ENV REDIS_DIR_EXTRACTED redis-2.8.17
+ENV REDIS_TAR redis-$REDIS_VERSION.tar.gz
+ENV REDIS_DIR_EXTRACTED redis-$REDIS_VERSION
 
 # Install Redis.
 RUN \
